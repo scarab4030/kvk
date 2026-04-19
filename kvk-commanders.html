@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCARAB | Commander Pairings</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        body { background-color: #020617; color: #f8fafc; font-family: 'Inter', sans-serif; }
+        .grid-bg { 
+            background-image: linear-gradient(rgba(30, 41, 59, 0.5) 1px, transparent 1px), 
+                              linear-gradient(90deg, rgba(30, 41, 59, 0.5) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+        .meta-card { 
+            background: rgba(15, 23, 42, 0.8); 
+            border: 1px solid #1e293b; 
+            backdrop-filter: blur(10px);
+        }
+        .unit-tag {
+            font-size: 9px; font-weight: 900; padding: 2px 10px; border-radius: 4px;
+            text-transform: uppercase; letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body class="grid-bg min-h-screen p-6 md:p-12">
+
+    <header class="max-w-6xl mx-auto mb-12">
+        <a href="fighting-guide.html" class="text-xs font-mono text-slate-500 hover:text-purple-500 transition-colors uppercase tracking-[0.3em] mb-8 block">
+            ← Back to Fighting Guide
+        </a>
+        <h1 class="text-5xl font-black italic uppercase tracking-tighter text-white">Target <span class="text-purple-500">Pairings</span></h1>
+        <p class="text-slate-400 font-mono text-[10px] mt-2 uppercase tracking-[0.5em]">KVK 1 // Open Field Meta</p>
+    </header>
+
+    <main class="max-w-6xl mx-auto space-y-6">
+
+        <section class="meta-card p-8 rounded-3xl border-l-4 border-l-emerald-500">
+            <div class="flex items-center gap-4 mb-6">
+                <span class="unit-tag bg-emerald-500/20 text-emerald-400">Infantry</span>
+                <div class="h-[1px] flex-grow bg-slate-800"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-slate-900/40 p-5 rounded-2xl border border-slate-800">
+                    <h3 class="text-white font-black uppercase italic text-sm mb-1">Richard I + Charles Martel</h3>
+                    <p class="text-slate-500 text-[11px] uppercase font-mono mb-3">Role: The Infinite Tank</p>
+                    <p class="text-slate-400 text-xs italic">"The ultimate ball-anchor. High sustainability, but lacks damage. Best for drawing aggro in the center."</p>
+                </div>
+                <div class="bg-slate-900/40 p-5 rounded-2xl border border-slate-800">
+                    <h3 class="text-white font-black uppercase italic text-sm mb-1">Sun Tzu + YSG</h3>
+                    <p class="text-slate-500 text-[11px] uppercase font-mono mb-3">Role: AOE Nuke</p>
+                    <p class="text-slate-400 text-xs italic">"Extreme circular AOE. Must stay hidden in the ball. If targeted, retreat immediately."</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="meta-card p-8 rounded-3xl border-l-4 border-l-blue-500">
+            <div class="flex items-center gap-4 mb-6">
+                <span class="unit-tag bg-blue-500/20 text-blue-400">Cavalry</span>
+                <div class="h-[1px] flex-grow bg-slate-800"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-slate-900/40 p-5 rounded-2xl border border-slate-800">
+                    <h3 class="text-white font-black uppercase italic text-sm mb-1">Minamoto + Cao Cao</h3>
+                    <p class="text-slate-500 text-[11px] uppercase font-mono mb-3">Role: Single Target Burst</p>
+                    <p class="text-slate-400 text-xs italic">"Glass cannon. Excellent for sniping stray marches and retreating. High speed for 1v3 flanking."</p>
+                </div>
+                <div class="bg-slate-900/40 p-5 rounded-2xl border border-slate-800">
+                    <h3 class="text-white font-black uppercase italic text-sm mb-1">Saladin + Aethelflaed</h3>
+                    <p class="text-slate-500 text-[11px] uppercase font-mono mb-3">Role: Debuff / Control</p>
+                    <p class="text-slate-400 text-xs italic">"Reduces enemy counterattack and movement. Vital for slowing down retreating enemies for the ball."</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="meta-card p-8 rounded-3xl border-l-4 border-l-red-500">
+            <div class="flex items-center gap-4 mb-6">
+                <span class="unit-tag bg-red-500/20 text-red-400">Archers</span>
+                <div class="h-[1px] flex-grow bg-slate-800"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-slate-900/40 p-5 rounded-2xl border border-slate-800">
+                    <h3 class="text-white font-black uppercase italic text-sm mb-1">Edward + YSG</h3>
+                    <p class="text-slate-500 text-[11px] uppercase font-mono mb-3">Role: High Precision Nuke</p>
+                    <p class="text-slate-400 text-xs italic">"Massive active skill damage. Extremely fragile. Requires 100% protection inside the ball."</p>
+                </div>
+                <div class="bg-slate-900/40 p-5 rounded-2xl border border-slate-800">
+                    <h3 class="text-white font-black uppercase italic text-sm mb-1">Hermann + El Cid</h3>
+                    <p class="text-slate-500 text-[11px] uppercase font-mono mb-3">Role: The Silencer</p>
+                    <p class="text-slate-400 text-xs italic">"Keeps the enemy from firing active skills. Use against high-damage commanders like Mina or Edward."</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="max-w-6xl mx-auto mt-20 border-t border-slate-900 pt-8 flex justify-between items-center opacity-40">
+        <p class="text-slate-600 font-mono text-[9px] uppercase tracking-widest">Scarab Military Education Dept</p>
+        <p class="text-slate-800 font-mono text-[9px]">DOC:4030-META-PAIRINGS</p>
+    </footer>
+
+</body>
+</html>

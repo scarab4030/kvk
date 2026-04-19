@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCARAB | Ultimate Combat Prep</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap');
+        body { background-color: #020617; color: #f8fafc; font-family: 'Space Grotesk', sans-serif; margin: 0; padding: 0; }
+        .grid-bg { 
+            background-image: linear-gradient(rgba(30, 41, 59, 0.5) 1px, transparent 1px), 
+                              linear-gradient(90deg, rgba(30, 41, 59, 0.5) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .protocol-card {
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid #1e293b;
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+        .protocol-card:hover { border-color: #3b82f6; }
+        .percentage { font-size: 1.5rem; font-weight: 900; color: #3b82f6; font-style: italic; }
+        .item-row { background: rgba(2, 6, 23, 0.6); border: 1px solid #1e293b; padding: 12px; border-radius: 12px; margin-bottom: 8px; }
+    </style>
+</head>
+<body class="grid-bg min-h-screen p-6 md:p-12">
+
+    <div class="max-w-7xl mx-auto">
+        <header class="mb-12">
+            <a href="fighting-guide.html" class="text-[10px] text-slate-500 uppercase tracking-[0.3em] hover:text-blue-500 transition-colors">← Back to Guide</a>
+            <h1 class="text-5xl font-black italic uppercase text-white mt-4 tracking-tighter">Combat <span class="text-blue-500">Readiness</span></h1>
+            <p class="text-slate-500 text-xs uppercase mt-2 tracking-widest">Pre-fight checklist: Runes, Items, and Identity</p>
+        </header>
+
+        <div class="grid lg:grid-cols-3 gap-8">
+            
+            <div class="space-y-6">
+                <h2 class="text-xl font-bold uppercase italic tracking-widest text-slate-400 flex items-center gap-4">
+                    <span class="text-blue-500">01</span> Map & Kingdom
+                </h2>
+                
+                <div class="protocol-card border-l-4 border-l-blue-500">
+                    <h3 class="text-xs font-bold uppercase text-slate-400 mb-4 tracking-widest">Required Runes</h3>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="bg-slate-950/50 p-3 rounded-lg border border-slate-800 flex flex-col items-center">
+                            <span class="text-[8px] font-bold text-slate-500 uppercase italic">Healing</span>
+                            <span class="text-blue-500 font-black text-lg">15%</span>
+                        </div>
+                        <div class="bg-slate-950/50 p-3 rounded-lg border border-slate-800 flex flex-col items-center">
+                            <span class="text-[8px] font-bold text-slate-500 uppercase italic">Health</span>
+                            <span class="text-purple-500 font-black text-lg">10%</span>
+                        </div>
+                        <div class="bg-slate-950/50 p-3 rounded-lg border border-slate-800 flex flex-col items-center">
+                            <span class="text-[8px] font-bold text-slate-500 uppercase italic">Attack</span>
+                            <span class="text-red-500 font-black text-lg">10%</span>
+                        </div>
+                        <div class="bg-slate-950/50 p-3 rounded-lg border border-slate-800 flex flex-col items-center">
+                            <span class="text-[8px] font-bold text-slate-500 uppercase italic">Defense</span>
+                            <span class="text-emerald-500 font-black text-lg">10%</span>
+                        </div>
+                    </div>
+
+                    <h3 class="text-xs font-bold uppercase text-slate-400 mt-8 mb-4 tracking-widest">Kingdom Assets</h3>
+                    <div class="space-y-3">
+                        <div class="item-row">
+                            <div class="flex justify-between items-center mb-1">
+                                <span class="text-white font-bold text-[10px] uppercase italic">Healing First Healing</span>
+                                <span class="text-blue-500 font-black text-lg">+30%</span>
+                            </div>
+                        </div>
+                        <div class="item-row border-l-2 border-emerald-500/50">
+                            <div class="flex justify-between items-center mb-1">
+                                <span class="text-white font-bold text-[10px] uppercase italic">Duke (Title)</span>
+                                <span class="text-emerald-500 font-black text-lg">DEF +10%</span>
+                            </div>
+                        </div>
+                        <div class="item-row border-l-2 border-blue-500/50">
+                            <div class="flex justify-between items-center mb-1">
+                                <span class="text-white font-bold text-[10px] uppercase italic">Justice (Title)</span>
+                                <span class="text-blue-400 font-black text-lg">SPD +10%</span>
+                            </div>
+                            <p class="text-[8px] text-slate-500 uppercase tracking-tighter ml-1">Attack +5% • High Mobility</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-6">
+                <h2 class="text-xl font-bold uppercase italic tracking-widest text-slate-400 flex items-center gap-4">
+                    <span class="text-amber-500">02</span> Army Expansions
+                </h2>
+                <div class="protocol-card border-t-4 border-t-amber-500">
+                    <p class="text-[10px] text-slate-500 mb-6 italic leading-relaxed">Increases total march capacity. Larger marches survive longer and trade better in the field.</p>
+                    
+                    <div class="item-row">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-white font-black italic text-xs">BASIC EXPANSION</span>
+                            <span class="text-amber-500 font-black text-xl">+25%</span>
+                        </div>
+                        <p class="text-[10px] text-slate-500">Standard for daily field fighting and minor skirmishes.</p>
+                    </div>
+
+                    <div class="item-row">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-white font-black italic text-xs">MEGA EXPANSION</span>
+                            <span class="text-amber-600 font-black text-xl">+50%</span>
+                        </div>
+                        <p class="text-[10px] text-slate-500">Mandatory for <span class="text-white font-bold">Rallies and Flag Defense</span>. Essential for KvK and Ark.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-6">
+                <h2 class="text-xl font-bold uppercase italic tracking-widest text-slate-400 flex items-center gap-4">
+                    <span class="text-red-500">03</span> Bag Boosts
+                </h2>
+                <div class="protocol-card border-t-4 border-t-red-500">
+                    <p class="text-[10px] text-slate-500 mb-6 italic leading-relaxed">Manual items used for specific timeframes. Choose based on your objective.</p>
+                    
+                    <div class="item-row">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-white font-black italic text-xs uppercase">Enhanced Attack</span>
+                            <span class="text-red-500 font-black text-xl">5% / 10%</span>
+                        </div>
+                        <p class="text-[10px] text-slate-500">Increases Skill Damage output. Preferred for offensive murder balls.</p>
+                    </div>
+
+                    <div class="item-row">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-white font-black italic text-xs uppercase">Enhanced Defense</span>
+                            <span class="text-emerald-500 font-black text-xl">5% / 10%</span>
+                        </div>
+                        <p class="text-[10px] text-slate-500">Best for tanking marches or holding ground when being focused.</p>
+                    </div>
+
+                    <div class="mt-4 bg-red-950/20 p-3 rounded-lg border border-red-900/40">
+                        <p class="text-[10px] text-red-500 font-black uppercase italic">⚠️ Conflict Rule</p>
+                        <p class="text-[10px] text-slate-400 mt-1 uppercase tracking-tighter">Attack and Defense boosts DO NOT stack. Activating one cancels the other.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="mt-12 pt-12 border-t border-slate-900">
+            <h2 class="text-xl font-bold uppercase italic tracking-widest text-slate-400 mb-8 flex items-center gap-4">
+                <span class="text-purple-500">04</span> Permanent Identity
+            </h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="protocol-card border-b-4 border-b-purple-500">
+                    <h3 class="text-[10px] font-bold uppercase text-purple-400 mb-4 tracking-widest">Stat Priority</h3>
+                    <div class="flex items-center justify-between text-2xl font-black italic text-white">
+                        <span>HP</span><span class="text-slate-700 text-sm">></span>
+                        <span>DEF</span><span class="text-slate-700 text-sm">></span>
+                        <span>ATK</span>
+                    </div>
+                    <p class="text-[10px] text-slate-500 mt-4 leading-relaxed">Prioritizing HP significantly lowers severely wounded numbers in the open field.</p>
+                </div>
+                <div class="protocol-card">
+                    <h3 class="text-[10px] font-bold uppercase text-slate-400 mb-4 tracking-widest">Best Civilizations</h3>
+                    <div class="text-xs space-y-3 font-bold">
+                        <div class="flex justify-between"><span class="text-blue-400 uppercase italic">Infantry</span><span class="text-white">France/Vikings</span></div>
+                        <div class="flex justify-between"><span class="text-amber-500 uppercase italic">Cavalry</span><span class="text-white">Germany</span></div>
+                        <div class="flex justify-between"><span class="text-red-500 uppercase italic">Archer</span><span class="text-white">Ottoman</span></div>
+                    </div>
+                </div>
+                <div class="protocol-card">
+                    <h3 class="text-[10px] font-bold uppercase text-slate-400 mb-4 tracking-widest">City Themes</h3>
+                    <p class="text-[10px] text-slate-400 leading-relaxed italic">
+                        Equip themes matching your troop type. Avoid themes with <span class="text-red-500">- (Negative)</span> HP or Defense stats for your primary unit.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="mt-12 text-center py-6 border-t border-slate-900">
+            <p class="text-slate-600 text-[10px] uppercase tracking-[0.5em]">Scarab Military Operations • Buff Checklist</p>
+        </footer>
+    </div>
+
+</body>
+</html>

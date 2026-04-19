@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #020617; color: #f8fafc; font-family: 'Inter', sans-serif; }
+        .grid-bg { background-image: radial-gradient(#1e293b 1px, transparent 1px); background-size: 20px 20px; }
+        .unit { transition: all 1.8s cubic-bezier(0.34, 1.56, 0.64, 1); position: absolute; border-radius: 9999px; }
+        
+        /* High-Intensity Stacking Auras - This makes the "Ball" look powerful when stacked */
+        .t5-tank { box-shadow: 0 0 25px #3b82f6; border: 2px solid white; z-index: 50; }
+        .dps-unit { box-shadow: 0 0 20px #f97316; z-index: 40; }
+        
+        .phase-card { transition: all 0.3s ease; border-left: 4px solid transparent; }
+        .phase-card.active { border-left-color: #eab308; background: rgba(30, 41, 59, 0.5); transform: translateX(10px); }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <nav class="max-w-7xl mx-auto mb-12 flex justify-between items-center border-b border-slate-800 pb-8">
+        <div>
+            <h1 class="text-4xl font-black text-yellow-500 italic uppercase tracking-tighter">The Ball System</h1>
+            <p class="text-slate-400 font-mono text-sm tracking-[0.2em]">PROTOCOL: SCARAB_ONE // DISCIPLINE_OVER_POWER</p>
+        </div>
+        <a href="index.html" class="px-6 py-2 bg-slate-800 hover:bg-slate-700 rounded-full text-xs font-bold transition-all uppercase">Back to Hub</a>
+    </nav>
+
+    <main class="max-w-7xl mx-auto space-y-20">
+
+        <section class="grid lg:grid-cols-2 gap-12 items-start">
+            <div>
+                <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                    <span class="bg-yellow-500 text-black px-3 py-1 rounded italic">01</span>
+                    WHAT IS A PERFECT TIGHT BALL?
+                </h2>
+                <p class="text-slate-400 leading-relaxed mb-6 text-lg">
+                    A tight ball isn't about having stronger commanders—it’s about <span class="text-white font-bold italic">discipline, spacing, and movement as ONE unit.</span> In a "Scarab Stack," individual identities disappear; the enemy only sees one massive, glowing target that they cannot effectively click.
+                </p>
+                <div class="grid grid-cols-1 gap-4">
+                    <div class="bg-slate-900 p-4 rounded-xl border border-slate-800 flex items-center gap-4">
+                        <div class="text-blue-500 text-2xl font-black">✔</div>
+                        <p class="text-sm"><span class="text-white font-bold uppercase">Pixel Stacking:</span> Clicking the exact same coordinate to hide numbers and protect squishy DPS marches inside the tank auras.</p>
+                    </div>
+                    <div class="bg-slate-900 p-4 rounded-xl border border-slate-800 flex items-center gap-4">
+                        <div class="text-blue-500 text-2xl font-black">✔</div>
+                        <p class="text-sm"><span class="text-white font-bold uppercase">Aura Shielding:</span> Using T5 defensive glows to mask the health bars of specialized damage dealers, making them "un-targetable."</p>
+                    </div>
+                    <div class="bg-slate-900 p-4 rounded-xl border border-slate-800 flex items-center gap-4">
+                        <div class="text-blue-500 text-2xl font-black">✔</div>
+                        <p class="text-sm"><span class="text-white font-bold uppercase">Target Focus:</span> 10 marches hitting 1 target creates an instant melt. 10 marches hitting 10 targets is a guaranteed loss.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-slate-950 p-8 rounded-3xl border border-slate-800 grid grid-cols-2 gap-8">
+                <div class="text-center">
+                    <h4 class="text-red-500 font-bold mb-4 uppercase text-xs tracking-widest">Wrong (Scattered)</h4>
+                    <div class="h-48 relative border border-red-900/30 rounded-xl flex items-center justify-center">
+                        <div class="w-2 h-2 bg-red-500 rounded-full absolute top-10 left-10"></div>
+                        <div class="w-2 h-2 bg-red-500 rounded-full absolute bottom-10 right-10"></div>
+                        <div class="w-2 h-2 bg-red-500 rounded-full absolute top-1/2 left-5"></div>
+                        <div class="w-2 h-2 bg-red-500 rounded-full absolute bottom-20 left-1/2"></div>
+                    </div>
+                    <p class="text-[10px] text-slate-500 mt-4 leading-tight italic">Gaps everywhere. Players get picked off one by one. No chain-support possible.</p>
+                </div>
+                <div class="text-center">
+                    <h4 class="text-green-500 font-bold mb-4 uppercase text-xs tracking-widest">Perfect (Stacked)</h4>
+                    <div class="h-48 relative border border-green-900/30 rounded-xl flex items-center justify-center">
+                        <div class="w-6 h-6 bg-green-500 rounded-full shadow-[0_0_20px_#22c55e]"></div>
+                    </div>
+                    <p class="text-[10px] text-slate-500 mt-4 leading-tight italic">The Anvil. All damage focused at a single point. Statistically impossible to pick off.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="space-y-8">
+            <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                <span class="bg-blue-600 text-white px-3 py-1 rounded italic">02</span>
+                TRIPLE-MARKER PUSH: THE 3 PHASES
+            </h2>
+
+            <div class="grid lg:grid-cols-4 gap-8">
+                <div class="space-y-4">
+                    <div id="p1" class="phase-card p-4 rounded-lg bg-slate-900 border border-slate-800">
+                        <h4 class="text-yellow-500 font-bold text-sm mb-1 uppercase">Phase 1: Zero-Gap Anchor</h4>
+                        <p class="text-xs text-slate-400">Leadership sets Marker 1. Marches assemble from scattered positions to land on the <strong>exact same pixel</strong>. This creates the "Ball" foundation.</p>
+                    </div>
+                    <div id="p2" class="phase-card p-4 rounded-lg bg-slate-900 border border-slate-800">
+                        <h4 class="text-blue-400 font-bold text-sm mb-1 uppercase">Phase 2: Lead Advance</h4>
+                        <p class="text-xs text-slate-400">Marker 2 placed. T5 Tanks move into "target range" first. DPS follows but stays <strong>buried</strong> behind the blue shields to absorb accidental AOE.</p>
+                    </div>
+                    <div id="p3" class="phase-card p-4 rounded-lg bg-slate-900 border border-slate-800">
+                        <h4 class="text-red-500 font-bold text-sm mb-1 uppercase">Phase 3: The Engulf</h4>
+                        <p class="text-xs text-slate-400">The ball will move in a synchronised way and hits enemy ball—it moves <strong>through</strong> them one by one and obliterate them. This splits the enemy's marches, breaking their morale while keeping our focus at 100%.</p>
+                    </div>
+                    <button onclick="executeFullManeuver()" class="w-full py-4 bg-yellow-600 hover:bg-yellow-500 text-black font-black rounded-xl transition-all uppercase italic shadow-[0_0_20px_rgba(234,179,8,0.3)] mt-4">
+                        EXECUTE PUSH
+                    </button>
+                </div>
+
+                <div class="lg:col-span-3">
+                    <div id="stage" class="grid-bg relative w-full h-[500px] bg-slate-950 rounded-3xl border border-slate-800 overflow-hidden shadow-inner">
+                        
+                        <div id="m-1" class="absolute hidden flex items-center justify-center" style="left: 20%; top: 50%"><div class="w-8 h-8 border-2 border-yellow-500 rounded-full animate-ping"></div><span class="text-[8px] absolute -top-5 text-yellow-500">MARKER_1</span></div>
+                        <div id="m-2" class="absolute hidden flex items-center justify-center" style="left: 45%; top: 50%"><div class="w-8 h-8 border-2 border-blue-500 rounded-full animate-ping"></div><span class="text-[8px] absolute -top-5 text-blue-500">MARKER_2</span></div>
+                        <div id="m-3" class="absolute hidden flex items-center justify-center" style="left: 75%; top: 50%"><div class="w-8 h-8 border-2 border-red-500 rounded-full animate-ping"></div><span class="text-[8px] absolute -top-5 text-red-500">MARKER_3</span></div>
+
+                        <div id="enemy-ball" class="absolute right-10 top-1/2 -translate-y-1/2 w-40 h-40 bg-red-600/10 border-2 border-red-500 rounded-full flex items-center justify-center transition-all duration-1000 opacity-0 scale-0">
+                            <span class="text-red-500 font-black italic uppercase text-xs">Enemy Force</span>
+                        </div>
+
+                        <div class="unit t5-tank w-12 h-12 bg-blue-600 flex items-center justify-center text-[8px] font-black" id="tank-1" style="left: 5%; top: 10%;">T5</div>
+                        <div class="unit t5-tank w-12 h-12 bg-blue-600 flex items-center justify-center text-[8px] font-black" id="tank-2" style="left: 85%; top: 15%;">T5</div>
+                        <div class="unit dps-unit w-10 h-10 bg-orange-500 flex items-center justify-center text-[8px] font-bold" id="d1" style="left: 2%; top: 80%;">DPS</div>
+                        <div class="unit dps-unit w-10 h-10 bg-orange-500 flex items-center justify-center text-[8px] font-bold" id="d2" style="left: 90%; top: 85%;">DPS</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="grid md:grid-cols-3 gap-6">
+            <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800">
+                <h4 class="text-yellow-500 font-bold mb-3 uppercase tracking-tighter italic">1. Micro-Stop Technique</h4>
+                <p class="text-xs text-slate-400">Essential for travel. Instead of one long click, move a short distance, <strong>STOP</strong>, and wait 1 second for the ball to compress. This prevents the "tail" from being picked off.</p>
+            </div>
+            <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800">
+                <h4 class="text-yellow-500 font-bold mb-3 uppercase tracking-tighter italic">2. Drag-Back Maneuver</h4>
+                <p class="text-xs text-slate-400">If your individual health bar drops: Do not run away. Run <strong>THROUGH</strong> your ball toward the back. Teammates will naturally "absorb" the clicks from your pursuer.</p>
+            </div>
+            <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800">
+                <h4 class="text-yellow-500 font-bold mb-3 uppercase tracking-tighter italic">3. Zero-Gap Discipline</h4>
+                <p class="text-xs text-slate-400">Every 5 seconds, even in combat, slightly adjust to stack on the leader. A ball that breathes (expands and contracts) is much harder to click than a static group.</p>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const units = [document.getElementById('tank-1'), document.getElementById('tank-2'), document.getElementById('d1'), document.getElementById('d2')];
+        const enemy = document.getElementById('enemy-ball');
+
+        async function moveBall(x, y, phaseId, spread) {
+            document.querySelectorAll('.phase-card').forEach(c => c.classList.remove('active'));
+            document.getElementById(phaseId).classList.add('active');
+            document.getElementById('m-' + phaseId.slice(1)).classList.remove('hidden');
+            
+            return new Promise(resolve => {
+                units.forEach((u, i) => {
+                    // Spread 0 = Perfect Pixel Stack
+                    const offset = i * spread;
+                    u.style.left = (x + offset) + '%';
+                    u.style.top = (y + (offset/2)) + '%';
+                });
+                setTimeout(resolve, 2200);
+            });
+        }
+
+        async function executeFullManeuver() {
+            // Reset simulation state
+            enemy.style.opacity = '1';
+            enemy.style.transform = 'translateY(-50%) scale(1)';
+            document.querySelectorAll('[id^="m-"]').forEach(m => m.classList.add('hidden'));
+
+            // PHASE 1: THE STACK (Zero Gap Simulation)
+            await moveBall(20, 48, 'p1', 0);
+            
+            // PHASE 2: THE ADVANCE (Minor offset to show it's moving)
+            await moveBall(45, 48, 'p2', 0.5);
+            
+            // PHASE 3: THE ENGULF (Back to Perfect Stack for the kill)
+            await moveBall(80, 48, 'p3', 0);
+
+            // The Wipe Visual
+            setTimeout(() => {
+                enemy.style.transform = 'translateY(-50%) scale(0)';
+                enemy.style.opacity = '0';
+                units.forEach(u => u.style.filter = 'brightness(1.5)');
+                setTimeout(() => units.forEach(u => u.style.filter = 'none'), 500);
+            }, 1000);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCARAB | KvK1 Meta Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        body { background-color: #020617; color: #f8fafc; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+        .grid-bg { 
+            background-image: linear-gradient(rgba(30, 41, 59, 0.5) 1px, transparent 1px), 
+                              linear-gradient(90deg, rgba(30, 41, 59, 0.5) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+        .meta-card { background: rgba(15, 23, 42, 0.8); border: 1px solid #1e293b; backdrop-filter: blur(10px); }
+        .skill-node { background: rgba(251, 191, 36, 0.1); color: #fbbf24; padding: 1px 5px; border-radius: 4px; font-size: 10px; font-family: monospace; border: 1px solid rgba(251, 191, 36, 0.2); }
+        
+        .tab-btn { position: relative; transition: 0.3s; color: #64748b; font-weight: 900; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.1em; padding-bottom: 0.75rem; }
+        .tab-btn.active { color: #fff; }
+        .tab-btn.active::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; background: #22c55e; box-shadow: 0 0 10px #22c55e; }
+        
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: tabFade 0.4s ease forwards; }
+
+        @keyframes tabFade { from { opacity: 0; transform: scale(0.98); } to { opacity: 1; transform: scale(1); } }
+    </style>
+</head>
+<body class="grid-bg min-h-screen p-6 md:p-12">
+
+    <header class="max-w-6xl mx-auto mb-10">
+        <a href="index.html" class="text-[10px] font-mono text-slate-500 hover:text-yellow-500 transition-colors uppercase tracking-[0.3em] mb-6 block">← Back to Command</a>
+        <h1 class="text-5xl font-black italic uppercase tracking-tighter text-white">Target <span class="text-green-500">Pairings</span></h1>
+        
+        <nav class="flex gap-10 mt-10 border-b border-slate-900">
+            <button onclick="showTab('inf')" class="tab-nav-item tab-btn active" id="btn-inf">Infantry</button>
+            <button onclick="showTab('cav')" class="tab-nav-item tab-btn" id="btn-cav">Cavalry</button>
+            <button onclick="showTab('arch')" class="tab-nav-item tab-btn" id="btn-arch">Archers</button>
+        </nav>
+    </header>
+
+    <main class="max-w-6xl mx-auto">
+
+        <div id="inf" class="tab-content active">
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="meta-card p-8 rounded-[2rem] border-l-4 border-l-emerald-500">
+                    <h3 class="text-yellow-500 text-[10px] font-black uppercase mb-6 italic tracking-widest">High-Mid Spenders</h3>
+                    <ul class="space-y-4 text-xs font-bold">
+                        <li class="border-b border-slate-800 pb-3">Martel <span class="skill-node">5511</span> + YSG <span class="skill-node">5115/Exp</span> <p class="text-[10px] font-normal text-slate-500 mt-1 italic">Tanky AOE. Sustained damage.</p></li>
+                        <li class="border-b border-slate-800 pb-3">Sun Tzu + YSG <span class="skill-node">5111/Exp</span> <p class="text-[10px] font-normal text-slate-500 mt-1 italic">Highest AOE Damage. Burst focus.</p></li>
+                        <li class="pb-1">Martel + Pyrrhus <p class="text-[10px] font-normal text-slate-500 mt-1 italic">Anti-Swarm Specialist.</p></li>
+                    </ul>
+                </div>
+                <div class="meta-card p-8 rounded-[2rem] border-l-4 border-l-blue-500">
+                    <h3 class="text-blue-500 text-[10px] font-black uppercase mb-6 italic tracking-widest">F2P Version</h3>
+                    <ul class="space-y-4 text-xs font-bold">
+                        <li class="border-b border-slate-800 pb-3">Sun Tzu + Cao Cao <span class="skill-node">5111</span> <p class="text-[10px] font-normal text-slate-500 mt-1 italic">Fast Single Target Burst. (Meta in 1v1)</p></li>
+                        <li class="border-b border-slate-800 pb-3">Sun Tzu + YSG <p class="text-[10px] font-normal text-slate-500 mt-1 italic">Sustained AOE. The "Double AOE".</p></li>
+                        <li class="pb-1">Sun Tzu + Aethel <span class="skill-node">5111/5511</span> <p class="text-[10px] font-normal text-slate-500 mt-1 italic">AOE Damage & Debuffing.</p></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="cav" class="tab-content">
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="meta-card p-8 rounded-[2rem] border-l-4 border-l-yellow-500">
+                    <h3 class="text-yellow-500 text-[10px] font-black uppercase mb-6 italic tracking-widest">High-Mid Spenders</h3>
+                    <ul class="space-y-4 text-xs font-bold">
+                        <li class="border-b border-slate-800 pb-3">Minamoto <span class="skill-node">Exp</span> + YSG <span class="skill-node">Exp</span> <p class="text-[10px] font-normal text-slate-500 mt-1 italic">The Primary DPS Powerhouse. Massive skill damage cycle.</p></li>
+                        <li class="border-b border-slate-800 pb-3">Minamoto <span class="skill-node">Exp</span> + Cao Cao <span class="skill-node">5511/Exp</span> <p class="text-[10px] font-normal text-slate-500 mt-1 italic">Highest Burst in KvK1. Flank King.</p></li>
+                        <li class="pb-1">Minamoto + Aethel <span class="skill-node">5511</span> <p class="text-[10px] font-normal text-slate-500 mt-1 italic">Massive Stat Reduction on Target.</p></li>
+                    </ul>
+                </div>
+                <div class="meta-card p-8 rounded-[2rem] border-l-4 border-l-blue-500">
+                    <h3 class="text-blue-500 text-[10px] font-black uppercase mb-6 italic tracking-widest">F2P Version</h3>
+                    <ul class="space-y-4 text-xs font-bold">
+                        <li class="border-b border-slate-800 pb-3">Pelagius + Baibars <p class="text-[10px] font-normal text-slate-500 mt-1 italic">Primary F2P Field Choice. AOE focused.</p></li>
+                        <li class="border-b border-slate-800 pb-3">Beli + Baibars <p class="text-[10px] font-normal text-slate-500 mt-1 italic">Farm Hunting & Extreme Mobility.</p></li>
+                        <li class="pb-1">Pelagius + Joan <p class="text-[10px] font-normal text-slate-500 mt-1 italic">Rage Support & Sustainability.</p></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="arch" class="tab-content">
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="meta-card p-8 rounded-[2rem] border-l-4 border-l-red-500">
+                    <h3 class="text-red-500 text-[10px] font-black uppercase mb-6 italic tracking-widest">High-Mid Spenders</h3>
+                    <ul class="space-y-4 text-xs font-bold">
+                        <li class="border-b border-slate-800 pb-3">Thutmose III <span class="skill-node">5511+</span> + YSG <span class="skill-node">Exp</span> <p class="text-[10px] font-normal text-slate-500 mt-1 italic">Modern Meta. Thutmose debuffs targets for YSG's circular nuke.</p></li>
+                        <li class="border-b border-slate-800 pb-3">YSG <span class="skill-node">Exp</span> + El Cid <span class="skill-node">5511</span> <p class="text-[10px] font-normal text-slate-500 mt-1 italic">Skill Suppression + Huge Circle AOE.</p></li>
+                        <li class="pb-1">El Cid + YSG <p class="text-[10px] font-normal text-slate-500 mt-1 italic">Control-focused artillery.</p></li>
+                    </ul>
+                </div>
+                <div class="meta-card p-8 rounded-[2rem] border-l-4 border-l-slate-700">
+                    <h3 class="text-slate-400 text-[10px] font-black uppercase mb-6 italic tracking-widest">F2P Version</h3>
+                    <ul class="space-y-4 text-xs font-bold">
+                        <li class="border-b border-slate-800 pb-3">Kusunoki + Sun Tzu <p class="text-[10px] font-normal text-slate-500 mt-1 italic">The AOE Machine. Use for Group Fights.</p></li>
+                        <li class="border-b border-slate-800 pb-3">Kusunoki + YSG <span class="skill-node">5111</span> <p class="text-[10px] font-normal text-slate-500 mt-1 italic">Budget Artillery. Fragile, stay in ball.</p></li>
+                        <li class="pb-1">Hermann + Aethel <p class="text-[10px] font-normal text-slate-500 mt-1 italic">Speed Reduction & Skill Lock.</p></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-8 p-6 bg-emerald-500/5 border border-emerald-500/10 rounded-3xl">
+            <h4 class="text-[10px] font-black uppercase text-emerald-500 mb-2">Tactical Summary</h4>
+            <p class="text-xs text-slate-500 leading-relaxed">The inclusion of <span class="text-white">Thutmose III</span> provides a vital skill damage taken debuff that makes the Murder Ball lethal. Pair <span class="text-white">Mina/YSG</span> to focus down key priority targets instantly.</p>
+        </div>
+
+    </main>
+
+    <script>
+        function showTab(tabId) {
+            const contents = document.getElementsByClassName('tab-content');
+            for (let content of contents) {
+                content.classList.remove('active');
+            }
+            const buttons = document.getElementsByClassName('tab-nav-item');
+            for (let btn of buttons) {
+                btn.classList.remove('active');
+            }
+            document.getElementById(tabId).classList.add('active');
+            document.getElementById('btn-' + tabId).classList.add('active');
+        }
+    </script>
+</body>
+</html>

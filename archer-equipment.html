@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCARAB | Archer Equipment</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #020617; color: #f8fafc; font-family: 'Inter', sans-serif; }
+        .grid-bg { 
+            background-image: linear-gradient(rgba(30, 41, 59, 0.5) 1px, transparent 1px), 
+                              linear-gradient(90deg, rgba(30, 41, 59, 0.5) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+        .op-card { background: rgba(15, 23, 42, 0.9); border: 1px solid #1e293b; backdrop-filter: blur(10px); }
+        .image-container { width: 100%; max-width: 320px; margin: 20px auto; border-radius: 1.5rem; overflow: hidden; border: 2px solid #ef4444; box-shadow: 0 0 20px rgba(239, 68, 68, 0.2); }
+        .image-container img { width: 100%; height: auto; display: block; }
+        #stats-overlay { display: none; position: absolute; inset: 0; background: rgba(7, 10, 20, 0.98); z-index: 50; border-radius: 2rem; }
+        .btn-stage { transition: all 0.3s ease; border: 1px solid #1e293b; color: #64748b; }
+        .btn-stage.active { background: rgba(239, 68, 68, 0.15); border-color: #ef4444; color: #fff; }
+    </style>
+</head>
+<body class="grid-bg min-h-screen p-6">
+
+    <div class="max-w-4xl mx-auto">
+        <header class="mb-8">
+            <a href="equipment-guide.html" class="text-[10px] text-slate-500 uppercase tracking-widest hover:text-red-500 transition-colors">← Back to Armory Hub</a>
+            <h1 class="text-4xl font-black italic uppercase text-white mt-2">Archer <span class="text-red-500">Ballistics</span></h1>
+            
+            <div class="flex flex-wrap gap-2 mt-6">
+                <button onclick="setStage('early')" id="btn-early" class="btn-stage text-[10px] font-bold uppercase px-4 py-2 rounded active">Earlygame</button>
+                <button onclick="setStage('mid')" id="btn-mid" class="btn-stage text-[10px] font-bold uppercase px-4 py-2 rounded">Midgame</button>
+                <button onclick="setStage('end1')" id="btn-end1" class="btn-stage text-[10px] font-bold uppercase px-4 py-2 rounded">Endgame S1</button>
+                <button onclick="setStage('end2')" id="btn-end2" class="btn-stage text-[10px] font-bold uppercase px-4 py-2 rounded">Endgame S2</button>
+                <button onclick="setStage('end3')" id="btn-end3" class="btn-stage text-[10px] font-bold uppercase px-4 py-2 rounded">Endgame S3</button>
+            </div>
+        </header>
+
+        <div class="op-card rounded-[2rem] p-8 relative min-h-[600px] border-slate-800 shadow-2xl">
+            <div class="flex justify-between items-center mb-6">
+                <div>
+                    <h2 id="display-title" class="text-2xl font-black italic uppercase text-white">Earlygame</h2>
+                    <p id="display-subtitle" class="text-[10px] text-slate-500 uppercase tracking-widest">Initial Setup</p>
+                </div>
+                <button onclick="toggleStats()" class="bg-red-600 hover:bg-red-500 text-white px-5 py-2 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all">Info</button>
+            </div>
+
+            <div class="image-container">
+                <img id="main-gear-img" src="arch-early.png" alt="Archer Set">
+            </div>
+
+            <div id="stats-overlay" class="p-8">
+                <div class="flex justify-between items-center mb-6 border-b border-slate-900 pb-4">
+                    <h3 id="stat-title" class="text-sm font-bold text-white uppercase tracking-widest">Stats</h3>
+                    <button onclick="toggleStats()" class="text-red-500 text-[10px] font-bold uppercase border border-red-500/30 px-3 py-1 rounded">Close</button>
+                </div>
+                <div id="set-effects" class="mb-8"></div>
+                <div id="stat-list" class="space-y-4"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const stageData = {
+            early: {
+                title: "Earlygame", sub: "Basic Archer Setup", img: "arch-early.png",
+                stats: { "Archer Attack": "+6.5%", "Archer Defense": "+18%", "Archer Health": "+6%", "EXP Gain": "+9%", "DMG to Barbarians": "+6%" },
+                sets: ["N/A"]
+            },
+            mid: {
+                title: "Midgame", sub: "Revival Set", img: "arch-mid.png",
+                stats: { "Archer Attack": "+15%", "Archer Defense": "+31%", "Archer Health": "+5.5%" },
+                sets: ["Revival (2pc): Troop Attack +3%", "Revival (4pc): Troop Defense +3%"]
+            },
+            end1: {
+                title: "Endgame Set 1", sub: "(Open Field)", img: "arch-end1.png",
+                stats: { "Archer Attack": "+32.5%", "Archer Defense": "+27.5%", "Archer Health": "+16%", "Skill Damage": "+3%" },
+                sets: ["Dragon's Breath (2pc): Troop Attack +3%", "Dragon's Breath (4pc): Skill Damage +3%", "Dragon's Breath (6pc): Archer Health +5%"]
+            },
+            end2: {
+                title: "Endgame Set 2", sub: "(Open Field)", img: "arch-end2.png",
+                stats: { "Archer Attack": "+36.5%", "Archer Defense": "+32.5%", "Archer Health": "+11%", "Skill Damage": "+3%" },
+                sets: ["Dragon's Breath (2pc): Troop Attack +3%", "Dragon's Breath (4pc): Skill Damage +3%"]
+            },
+            end3: {
+                title: "Endgame Set 3", sub: "(Open Field)", img: "arch-end3.png",
+                stats: { "Archer Attack": "+23%", "Archer Defense": "+28%", "Archer Health": "+26%", "March Speed": "+2%", "EXP Gain": "+10%" },
+                sets: ["Garb of the Glorious Goddess (2pc): Troop Defense +3%"]
+            }
+        };
+
+        let currentStage = 'early';
+
+        function setStage(stage) {
+            currentStage = stage;
+            const data = stageData[stage];
+            document.getElementById('main-gear-img').src = data.img;
+            document.getElementById('display-title').innerText = data.title;
+            document.getElementById('display-subtitle').innerText = data.sub;
+            document.querySelectorAll('.btn-stage').forEach(btn => btn.classList.remove('active'));
+            document.getElementById('btn-' + stage).classList.add('active');
+        }
+
+        function toggleStats() {
+            const overlay = document.getElementById('stats-overlay');
+            if (overlay.style.display === 'block') {
+                overlay.style.display = 'none';
+            } else {
+                const data = stageData[currentStage];
+                document.getElementById('stat-title').innerText = data.title + " Specs";
+                const setDiv = document.getElementById('set-effects');
+                setDiv.innerHTML = `<p class="text-red-500 text-[10px] font-bold uppercase mb-2">Set Effects Applied</p>`;
+                data.sets.forEach(s => { setDiv.innerHTML += `<p class="text-slate-400 text-[10px] font-mono mb-1">» ${s}</p>`; });
+                const list = document.getElementById('stat-list');
+                list.innerHTML = "";
+                for (const [key, val] of Object.entries(data.stats)) {
+                    list.innerHTML += `<div class="flex justify-between items-center border-b border-slate-900 pb-2"><span class="text-slate-400 text-xs flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-red-500"></div> ${key}</span><span class="text-white font-bold text-xs">${val}</span></div>`;
+                }
+                overlay.style.display = 'block';
+            }
+        }
+        setStage('early');
+    </script>
+</body>
+</html>

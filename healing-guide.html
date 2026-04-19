@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCARAB | Healing Protocol</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap');
+        body { background-color: #020617; color: #f8fafc; font-family: 'Space Grotesk', sans-serif; }
+        .grid-bg { background-image: radial-gradient(#1e293b 1px, transparent 1px); background-size: 30px 30px; }
+        
+        .protocol-card {
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid #1e293b;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .accent-emerald { border-top: 4px solid #10b981; }
+        .accent-amber { border-top: 4px solid #f59e0b; }
+        .accent-red { border-top: 4px solid #ef4444; }
+
+        .stat-badge {
+            background: rgba(16, 185, 129, 0.1);
+            color: #10b981;
+            font-size: 10px;
+            font-weight: 800;
+            padding: 4px 10px;
+            border-radius: 99px;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+    </style>
+</head>
+<body class="grid-bg min-h-screen p-6 md:p-12">
+
+    <div class="max-w-4xl mx-auto">
+        <header class="mb-12">
+            <a href="fighting-guide.html" class="text-[10px] text-slate-500 uppercase tracking-widest hover:text-emerald-500 transition-colors">← Back to Guide</a>
+            <h1 class="text-5xl font-black italic uppercase text-white mt-4">Healing <span class="text-emerald-500">Protocol</span></h1>
+            <p class="text-slate-400 mt-2">Hospital management is the difference between winning a war and going broke.</p>
+        </header>
+
+        <div class="grid gap-8">
+            
+            <div class="protocol-card accent-emerald">
+                <div class="flex justify-between items-start mb-6">
+                    <h2 class="text-2xl font-black italic uppercase text-white">01. Maximize Buffs First</h2>
+                    <span class="text-[10px] text-emerald-500 font-bold tracking-widest uppercase">Critical Step</span>
+                </div>
+                <p class="text-slate-400 text-sm mb-6 leading-relaxed">Before clicking the heal button, ensure your efficiency is at its maximum to save hours of speedups.</p>
+                
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="bg-slate-950/50 p-4 rounded-xl border border-slate-800">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-white font-bold text-xs uppercase">Healing Rune</span>
+                            <span class="stat-badge">+15% Speed</span>
+                        </div>
+                        <p class="text-slate-500 text-[10px]">Collect a rune from a Sanctum or Altar before starting any major healing batch.</p>
+                    </div>
+                    <div class="bg-slate-950/50 p-4 rounded-xl border border-slate-800">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-white font-bold text-xs uppercase">Kingdom Buff</span>
+                            <span class="stat-badge">+30% Speed</span>
+                        </div>
+                        <p class="text-slate-500 text-[10px]">Check if the Kingdom Healing Buff is active or scheduled soon. Time your big heals with this.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="protocol-card accent-amber">
+                <div class="flex justify-between items-start mb-6">
+                    <h2 class="text-2xl font-black italic uppercase text-white">02. Micro-Healing Technique</h2>
+                    <span class="text-[10px] text-amber-500 font-bold tracking-widest uppercase">Pro Efficiency</span>
+                </div>
+                
+                <div class="space-y-4 text-slate-400 text-sm leading-relaxed">
+                    <p>Alliance "Helps" are your most valuable resource. Instead of healing everything at once, use micro-batches.</p>
+                    
+                    <div class="bg-amber-950/10 border border-amber-900/30 p-4 rounded-xl">
+                        <h4 class="text-amber-500 font-bold text-xs uppercase mb-2">The Golden Timeframe</h4>
+                        <p class="text-xs">Set your heal batches for <span class="text-white font-bold">1 hour 10 mins to 1 hour 30 mins</span>. This range is the sweet spot where Alliance Helps (depending on your Center level) can instantly finish the timer.</p>
+                    </div>
+
+                    <div class="bg-red-950/20 border border-red-900/30 p-4 rounded-xl">
+                        <h4 class="text-red-500 font-bold text-xs uppercase mb-2">Daily Help Limit</h4>
+                        <p class="text-xs">You can only receive up to <span class="text-white font-bold">1,000 helps per day</span> for healing. Once you hit this limit, micro-healing won't work until reset. At that point, use healing speedups to clear the hospital and return to the fight.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="protocol-card accent-red">
+                <div class="flex justify-between items-start mb-6">
+                    <h2 class="text-2xl font-black italic uppercase text-white">03. Active Combat Watch</h2>
+                    <span class="text-[10px] text-red-500 font-bold tracking-widest uppercase">Combat Safety</span>
+                </div>
+                <ul class="space-y-4 text-slate-400 text-sm">
+                    <li class="flex gap-4">
+                        <div class="w-1.5 h-1.5 rounded-full bg-red-500 mt-2 shrink-0"></div>
+                        <p><span class="text-white font-bold">Monitor Capacity:</span> If you are actively fighting, check your hospital every few minutes. If it fills up, your troops will <span class="text-red-500 font-bold uppercase">die permanently</span>.</p>
+                    </li>
+                    <li class="flex gap-4">
+                        <div class="w-1.5 h-1.5 rounded-full bg-red-500 mt-2 shrink-0"></div>
+                        <p><span class="text-white font-bold">Regular Clearing:</span> Don't wait for a 100% full hospital. Regularly retreat to your city to clear out wounded so you always have a safety net.</p>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <footer class="mt-12 pt-6 border-t border-slate-900 text-center">
+            <p class="text-slate-600 text-[10px] uppercase tracking-widest">Scarab Alliance Internal Training Manual</p>
+        </footer>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCARAB | Operation Sentinel - KvK Map</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Inter:wght@400;700;900&display=swap');
+        body { background-color: #020617; color: #f8fafc; font-family: 'Inter', sans-serif; }
+        .grid-bg { 
+            background-image: linear-gradient(rgba(30, 41, 59, 0.5) 1px, transparent 1px), 
+                              linear-gradient(90deg, rgba(30, 41, 59, 0.5) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+        .op-card { 
+            background: rgba(15, 23, 42, 0.9); 
+            border: 1px solid #1e293b; 
+            backdrop-filter: blur(10px); 
+        }
+        .map-glow { box-shadow: 0 0 30px rgba(251, 191, 36, 0.1); }
+        .target-text {
+            background: linear-gradient(90deg, #fbbf24 0%, #ef4444 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .protocol-label {
+            background: rgba(234, 179, 8, 0.05);
+            border: 1px solid rgba(234, 179, 8, 0.2);
+            font-size: 9px;
+            color: #fbbf24;
+        }
+    </style>
+</head>
+<body class="grid-bg min-h-screen p-6 md:p-12">
+
+    <div class="max-w-7xl mx-auto">
+        <header class="mb-12 flex justify-between items-center border-b border-slate-800 pb-8">
+            <div>
+                <a href="index.html" class="text-[10px] font-mono text-slate-500 uppercase tracking-[0.3em] hover:text-yellow-500 transition-colors">← Operations Command</a>
+                <h1 class="text-5xl font-black italic uppercase text-white mt-4 tracking-tighter">Operation <span class="text-yellow-500">Sentinel</span></h1>
+                <p class="text-slate-500 text-xs font-mono mt-2 uppercase tracking-widest">Endless War (KvK 1) // Tactical Theater Map</p>
+            </div>
+            <div class="text-right hidden md:block">
+                <p class="text-[9px] font-mono text-slate-600 uppercase">SAT_REF: 4030-SENTINEL</p>
+                <p class="text-green-500 font-bold uppercase text-[9px]">Uplink Stable</p>
+            </div>
+        </header>
+
+        <main class="grid lg:grid-cols-3 gap-8">
+            
+            <div class="lg:col-span-2 space-y-8">
+                <div class="op-card p-6 rounded-[2.5rem] map-glow border border-slate-700/50 relative overflow-hidden flex flex-col items-center">
+                    <img src="kvk1_endlesswar_map.png" alt="KvK 1 Endless War Map" class="w-full rounded-2xl mb-6">
+                    <p class="text-slate-600 text-[10px] font-mono uppercase tracking-[0.3em] italic text-center">Satellite Imagery // Secured via Sugar Free Uplink</p>
+                </div>
+
+                <div class="op-card p-8 rounded-[2rem] border-t-2 border-t-red-500 bg-red-950/5 relative overflow-hidden">
+                    <h2 class="text-sm font-black text-red-500 uppercase tracking-widest italic mb-6">⚠️ Direct Threat Assessment</h2>
+                    <div class="grid grid-cols-3 gap-6 text-[10px] leading-relaxed text-slate-400 font-mono">
+                        <div>
+                            <span class="text-white font-bold uppercase">Sector Alpha (NW)</span>
+                            <p class="mt-1">Kingdom 4029. Known for heavy AP consumption. Will attempt to rush Zone 4 passes.</p>
+                        </div>
+                        <div>
+                            <span class="text-white font-bold uppercase">Sector Bravo (SW)</span>
+                            <p class="mt-1">Kingdom 4032. Coordination is weak. We will bleed their resources in defensive skirmishes.</p>
+                        </div>
+                        <div>
+                            <span class="text-white font-bold uppercase">Sector Gamma (SE)</span>
+                            <p class="mt-1">Kingdom 4031. Passive gatherers. We must block their expansion routes early.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <aside class="space-y-8">
+                <div class="op-card p-8 rounded-[2rem] border-l-4 border-l-yellow-500 bg-yellow-500/5 flex flex-col">
+                    <h3 class="text-lg font-black italic uppercase text-white tracking-tighter mb-4">The <span class="target-text">1v3</span> Commitment</h3>
+                    <p class="text-[11px] text-slate-300 leading-relaxed mb-6 font-mono">
+                        "They don't understand our doctrine. Our pixel stacking is precise. Our micro-healing is relentless. They have three kingdoms, but they only have one hope—that we falter. We are not trapped in Zone 4 with them. They are trapped on this map with <span class="text-yellow-500 font-bold">THE SCARAB</span>."
+                    </p>
+                    <div class="mt-auto flex gap-2">
+                        <span class="protocol-label px-3 py-1 rounded-md font-bold">#SCARABSTRONG</span>
+                        <span class="protocol-label px-3 py-1 rounded-md font-bold">#SENTINEL</span>
+                    </div>
+                </div>
+
+                <div class="op-card p-8 rounded-[2rem] border-t-2 border-t-blue-500">
+                    <h3 class="text-xs font-black text-blue-500 uppercase tracking-widest mb-6">Directive Checklist</h3>
+                    <div class="space-y-4 text-[10px] leading-tight">
+                        <div class="flex justify-between items-center bg-slate-900/50 p-3 rounded-lg border border-slate-800">
+                            <span class="text-white font-bold uppercase">1. Z4 Pass Control</span>
+                            <span class="text-blue-400 font-mono italic">Sector Priority</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-slate-900/50 p-3 rounded-lg border border-slate-800">
+                            <span class="text-white font-bold uppercase">2. Supply Line Interdiction</span>
+                            <span class="text-blue-400 font-mono italic">Daily Target</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-slate-900/50 p-3 rounded-lg border border-slate-800">
+                            <span class="text-white font-bold uppercase">3. Ruins Denial Protocol</span>
+                            <span class="text-blue-400 font-mono italic">Altar Timing</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-slate-900/50 p-3 rounded-lg border border-slate-800">
+                            <span class="text-white font-bold uppercase">4. Coordinate SWouonds</span>
+                            <span class="text-blue-400 font-mono italic">War Frenzy</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="op-card p-6 rounded-[2rem] border-2 border-slate-800 flex items-center gap-4 text-xs">
+                    <div class="text-3xl">🔊</div>
+                    <div>
+                        <p class="text-slate-500 leading-tight">Current Zone Openings:</p>
+                        <p class="text-white font-mono uppercase tracking-tighter">Standby for Pass 5 Activation</p>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <footer class="mt-16 text-center opacity-40">
+            <p class="text-[9px] font-mono uppercase tracking-[0.5em] text-slate-500">Sentinel Uplink // secured SCARAB Network</p>
+        </footer>
+    </div>
+
+</body>
+</html>

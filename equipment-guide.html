@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCARAB | Equipment Selection</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #020617; color: #f8fafc; font-family: 'Inter', sans-serif; }
+        .grid-bg { 
+            background-image: linear-gradient(rgba(30, 41, 59, 0.5) 1px, transparent 1px), 
+                              linear-gradient(90deg, rgba(30, 41, 59, 0.5) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+        .hub-card { 
+            background: rgba(15, 23, 42, 0.9); 
+            border: 1px solid #1e293b; 
+            backdrop-filter: blur(10px); 
+            transition: all 0.3s ease;
+        }
+        .hub-card:hover { border-color: #3b82f6; transform: translateY(-5px); }
+    </style>
+</head>
+<body class="grid-bg min-h-screen p-6 flex items-center justify-center">
+
+    <div class="max-w-4xl w-full">
+        <header class="text-center mb-12">
+            <a href="fighting-guide.html" class="text-[10px] text-slate-500 uppercase tracking-widest hover:text-yellow-500">← Back to Fighting Guide</a>
+            <h1 class="text-5xl font-black italic uppercase text-white mt-4">Division <span class="text-blue-500">Armory</span></h1>
+            <p class="text-slate-500 text-xs uppercase mt-2 tracking-widest">Select your troop type to view optimized gear sets</p>
+        </header>
+
+        <div class="grid md:grid-cols-3 gap-6">
+            
+            <a href="infantry-equipment.html" class="hub-card p-8 rounded-[2rem] text-center border-l-4 border-l-blue-500 group">
+                <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">🛡️</div>
+                <h2 class="text-xl font-black italic uppercase text-white">Infantry</h2>
+                <p class="text-[10px] text-slate-500 mt-2">Tanking & Field Survival</p>
+            </a>
+
+            <a href="cavalry-equipment.html" class="hub-card p-8 rounded-[2rem] text-center border-l-4 border-l-amber-500 group">
+                <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">🏇</div>
+                <h2 class="text-xl font-black italic uppercase text-white">Cavalry</h2>
+                <p class="text-[10px] text-slate-500 mt-2">Speed & Hit-and-Run</p>
+            </a>
+
+            <a href="archer-equipment.html" class="hub-card p-8 rounded-[2rem] text-center border-l-4 border-l-red-500 group">
+                <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">🏹</div>
+                <h2 class="text-xl font-black italic uppercase text-white">Archer</h2>
+                <p class="text-[10px] text-slate-500 mt-2">High Burst & Skill Damage</p>
+            </a>
+
+        </div>
+    </div>
+
+</body>
+</html>

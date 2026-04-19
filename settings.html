@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scarab | System Settings</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #020617; color: #f8fafc; font-family: 'Inter', sans-serif; }
+        .grid-bg { background-image: radial-gradient(#1e293b 1px, transparent 1px); background-size: 30px 30px; }
+        .card { background: rgba(15, 23, 42, 0.9); border: 1px solid #1e293b; padding: 2rem; border-radius: 1.5rem; border-left: 4px solid #3b82f6; }
+        .field-card { border-left: 4px solid #f59e0b; background: rgba(30, 41, 59, 0.5); }
+        img { border: 1px solid #334155; border-radius: 0.5rem; margin-top: 1.5rem; width: 100%; max-width: 800px; display: block; }
+        .tag { background: #3b82f6; color: white; padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: 900; vertical-align: middle; margin-right: 8px; }
+        .tag-field { background: #f59e0b; }
+    </style>
+</head>
+<body class="grid-bg min-h-screen p-6 md:p-12">
+
+    <nav class="max-w-5xl mx-auto mb-12 flex justify-between items-center border-b border-slate-800 pb-6">
+        <div>
+            <h1 class="text-3xl font-black text-blue-500 italic uppercase">System Settings</h1>
+            <p class="text-slate-500 font-mono text-[10px] tracking-widest uppercase">Mandatory Configuration // SCARAB_4030</p>
+        </div>
+        <a href="index.html" class="bg-slate-800 px-6 py-2 rounded-full text-xs font-bold uppercase hover:bg-slate-700">Back to Hub</a>
+    </nav>
+
+    <main class="max-w-4xl mx-auto space-y-12">
+
+        <section class="space-y-6">
+            <h2 class="text-2xl font-black text-amber-500 italic uppercase tracking-wider">During Field Fights: Necessary Steps</h2>
+            
+            <div class="card field-card">
+                <span class="tag tag-field">DOT MODE</span>
+                <h3 class="inline text-lg font-bold uppercase">Filter Mode Configuration</h3>
+                <p class="mt-4 text-slate-300 text-sm leading-relaxed">
+                    Use these specific settings for <strong>Dot Mode</strong>. This allows you to fight efficiently in the field with <strong>minimum lag</strong> by filtering out unnecessary clutter.
+                </p>
+                <img src="filter1.png" alt="Dot Mode Filters">
+            </div>
+
+            <div class="card field-card">
+                <span class="tag tag-field">MOVEMENT</span>
+                <h3 class="inline text-lg font-bold uppercase">Quick Command Mechanics</h3>
+                <p class="mt-4 text-slate-300 text-sm leading-relaxed">
+                    Uncheck these boxes so you can tap the screen and move your march without interference. For example, if you uncheck "Resource Points," you can tap a node and your march will ignore it and keep moving to your target.
+                </p>
+                <img src="filter2.png" alt="Quick Command Settings">
+            </div>
+        </section>
+
+        <hr class="border-slate-800">
+
+        <section class="space-y-6">
+            <h2 class="text-xl font-black text-slate-400 italic uppercase tracking-wider">Standard Combat Configuration</h2>
+
+            <div class="card">
+                <span class="tag">01</span>
+                <h3 class="inline text-lg font-bold uppercase">Combat Menu Navigation</h3>
+                <img src="combat1.png">
+            </div>
+
+            <div class="card">
+                <span class="tag">02</span>
+                <h3 class="inline text-lg font-bold uppercase">Toggle Features</h3>
+                <img src="combat2.png">
+            </div>
+
+            <div class="card">
+                <span class="tag">03</span>
+                <h3 class="inline text-lg font-bold uppercase">Strategic View</h3>
+                <img src="combat3.png">
+            </div>
+
+            <div class="card">
+                <span class="tag">04</span>
+                <h3 class="inline text-lg font-bold uppercase">Tactical Display (Thin Lines)</h3>
+                <img src="combat4.png">
+            </div>
+
+            <div class="card">
+                <span class="tag">05</span>
+                <h3 class="inline text-lg font-bold uppercase">Battle Visuals</h3>
+                <img src="combat5.png">
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="mt-20 text-center opacity-30 pb-10">
+        <p class="text-[10px] font-mono tracking-[0.5em] uppercase">Scarab Internal Systems // Combat Prep</p>
+    </footer>
+
+</body>
+</html>

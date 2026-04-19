@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCARAB | Infantry Equipment</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #020617; color: #f8fafc; font-family: 'Inter', sans-serif; }
+        .grid-bg { 
+            background-image: linear-gradient(rgba(30, 41, 59, 0.5) 1px, transparent 1px), 
+                              linear-gradient(90deg, rgba(30, 41, 59, 0.5) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+        .op-card { background: rgba(15, 23, 42, 0.9); border: 1px solid #1e293b; backdrop-filter: blur(10px); }
+        
+        /* Container for your full screenshot */
+        .image-container {
+            width: 100%;
+            max-width: 320px;
+            margin: 20px auto;
+            border-radius: 1rem;
+            overflow: hidden;
+            border: 1px solid #1e293b;
+        }
+        .image-container img { width: 100%; height: auto; display: block; }
+
+        /* Stats Overlay */
+        #stats-overlay { 
+            display: none; 
+            position: absolute; 
+            inset: 0; 
+            background: rgba(7, 10, 20, 0.98); 
+            z-index: 50; 
+            border-radius: 2rem; 
+        }
+    </style>
+</head>
+<body class="grid-bg min-h-screen p-6">
+
+    <div class="max-w-4xl mx-auto">
+        <header class="mb-8">
+            <a href="equipment-guide.html" class="text-[10px] text-slate-500 uppercase tracking-widest hover:text-blue-500 transition-colors">← Back to Selection</a>
+            <h1 class="text-4xl font-black italic uppercase text-white mt-2">Infantry <span class="text-blue-500">Equipment</span></h1>
+            
+            <div class="flex flex-wrap gap-2 mt-6">
+                <button onclick="setStage('early')" id="btn-early" class="text-[10px] font-bold uppercase px-4 py-2 rounded border border-blue-500 bg-blue-500/20 text-white">Earlygame</button>
+                <button onclick="setStage('mid')" id="btn-mid" class="text-[10px] font-bold uppercase px-4 py-2 rounded border border-slate-800 text-slate-500">Midgame</button>
+                <button onclick="setStage('end1')" id="btn-end1" class="text-[10px] font-bold uppercase px-4 py-2 rounded border border-slate-800 text-slate-500">Endgame S1</button>
+                <button onclick="setStage('end2')" id="btn-end2" class="text-[10px] font-bold uppercase px-4 py-2 rounded border border-slate-800 text-slate-500">Endgame S2</button>
+            </div>
+        </header>
+
+        <div class="op-card rounded-[2rem] p-8 relative min-h-[600px] border-slate-800 shadow-2xl">
+            
+            <div class="flex justify-between items-center mb-6">
+                <div>
+                    <h2 id="display-title" class="text-2xl font-black italic uppercase text-white">Earlygame</h2>
+                    <p id="display-subtitle" class="text-[10px] text-slate-500 uppercase tracking-widest">Optimal Field Build</p>
+                </div>
+                <button onclick="toggleStats()" class="bg-blue-600 hover:bg-blue-500 text-white px-5 py-2 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all">Info</button>
+            </div>
+
+            <div class="image-container">
+                <img id="main-gear-img" src="inf-early.png" alt="Equipment Set">
+            </div>
+
+            <div id="stats-overlay" class="p-8">
+                <div class="flex justify-between items-center mb-6 border-b border-slate-900 pb-4">
+                    <h3 id="stat-title" class="text-sm font-bold text-white uppercase tracking-widest">Stats</h3>
+                    <button onclick="toggleStats()" class="text-blue-500 text-[10px] font-bold uppercase border border-blue-500/30 px-3 py-1 rounded hover:bg-blue-500/10">Close</button>
+                </div>
+                
+                <div id="set-effects" class="mb-8">
+                    </div>
+
+                <div id="stat-list" class="space-y-4">
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const stageData = {
+            early: {
+                title: "Earlygame", sub: "Optimal Field Build", img: "inf-early.png", color: "blue-500",
+                stats: { "Inf Attack": "+16.5%", "Inf Defense": "+4.5%", "Inf Health": "+13%", "March Speed": "+6%", "EXP Gain": "+6%" },
+                sets: ["Windswept (2pc): Troop Attack +2%"]
+            },
+            mid: {
+                title: "Midgame", sub: "Epic/Legendary Mix", img: "inf-mid.png", color: "purple-500",
+                stats: { "Inf Attack": "+29%", "Inf Defense": "+11%", "Inf Health": "+8%", "DMG to Barbs": "+15%" },
+                sets: ["Standard Midgame Mix"]
+            },
+            end1: {
+                title: "Endgame Set 1", sub: "Full Legendary (Focus: Def)", img: "inf-end1.png", color: "orange-500",
+                stats: { "Inf Attack": "+20%", "Inf Defense": "+53%", "March Speed": "+10%" },
+                sets: ["Eternal Empire (2pc): Defense +3%", "Eternal Empire (4pc): March Speed +10%"]
+            },
+            end2: {
+                title: "Endgame Set 2", sub: "Full Legendary (Focus: Atk)", img: "inf-end2.png", color: "orange-500",
+                stats: { "Inf Attack": "+47%", "Inf Defense": "+33%", "March Speed": "+10%" },
+                sets: ["Eternal Empire (2pc): Defense +3%", "Eternal Empire (4pc): March Speed +10%"]
+            }
+        };
+
+        let currentStage = 'early';
+
+        function setStage(stage) {
+            currentStage = stage;
+            const data = stageData[stage];
+            
+            // 1. Swap the Image
+            document.getElementById('main-gear-img').src = data.img;
+
+            // 2. Update Text
+            document.getElementById('display-title').innerText = data.title;
+            document.getElementById('display-subtitle').innerText = data.sub;
+            
+            // 3. Update Buttons
+            document.querySelectorAll('header button').forEach(btn => {
+                btn.className = "text-[10px] font-bold uppercase px-4 py-2 rounded border border-slate-800 text-slate-500";
+            });
+            const activeBtn = document.getElementById('btn-' + stage);
+            activeBtn.className = `text-[10px] font-bold uppercase px-4 py-2 rounded border border-${data.color} bg-${data.color}/20 text-white`;
+        }
+
+        function toggleStats() {
+            const overlay = document.getElementById('stats-overlay');
+            if (overlay.style.display === 'block') {
+                overlay.style.display = 'none';
+            } else {
+                const data = stageData[currentStage];
+                document.getElementById('stat-title').innerText = data.title + " Specs";
+                
+                // Set Effects
+                const setDiv = document.getElementById('set-effects');
+                setDiv.innerHTML = `<p class="text-yellow-500 text-[10px] font-bold uppercase mb-2">Set Effects Applied</p>`;
+                data.sets.forEach(s => {
+                    setDiv.innerHTML += `<p class="text-slate-400 text-[10px] font-mono mb-1">» ${s}</p>`;
+                });
+
+                // Stats List
+                const list = document.getElementById('stat-list');
+                list.innerHTML = "";
+                for (const [key, val] of Object.entries(data.stats)) {
+                    list.innerHTML += `
+                        <div class="flex justify-between items-center border-b border-slate-900 pb-2">
+                            <span class="text-slate-400 text-xs flex items-center gap-2">
+                                <div class="w-1.5 h-1.5 rounded-full ${key.includes('Attack') ? 'bg-blue-500' : 'bg-orange-500'}"></div> ${key}
+                            </span>
+                            <span class="text-white font-bold text-xs">${val}</span>
+                        </div>`;
+                }
+                overlay.style.display = 'block';
+            }
+        }
+
+        // Initialize with Earlygame
+        setStage('early');
+    </script>
+</body>
+</html>

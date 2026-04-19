@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCARAB | Crusader Max Checklist</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Inter:wght@400;700;900&display=swap');
+        body { 
+            background-color: #020617; 
+            color: #f8fafc; 
+            font-family: 'Inter', sans-serif; 
+        }
+        .grid-bg { 
+            background-image: linear-gradient(rgba(30, 41, 59, 0.5) 1px, transparent 1px), 
+                              linear-gradient(90deg, rgba(30, 41, 59, 0.5) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+        .scarab-glow { box-shadow: 0 0 20px rgba(234, 179, 8, 0.2); }
+        .op-card { 
+            background: rgba(15, 23, 42, 0.8); 
+            border: 1px solid #1e293b; 
+            backdrop-filter: blur(10px); 
+            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .op-card:hover { border-color: #fbbf24; transform: translateY(-3px); }
+        .reward-tag { background: rgba(30, 41, 59, 0.6); border: 1px solid #334155; font-size: 8px; }
+        .target-number { font-size: 1.5rem; font-weight: 900; color: #fbbf24; font-style: italic; tracking: tight; }
+    </style>
+</head>
+<body class="grid-bg min-h-screen p-6 md:p-12">
+
+    <div class="max-w-6xl mx-auto">
+        <header class="mb-12 flex justify-between items-center border-b border-slate-800 pb-8">
+            <div class="flex items-center gap-6">
+                <div class="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center scarab-glow">
+                    <span class="text-4xl">🪲</span>
+                </div>
+                <div>
+                    <h1 class="text-5xl font-black italic uppercase text-white tracking-tighter">THE <span class="text-yellow-500">SCARAB</span></h1>
+                    <p class="text-[10px] font-mono tracking-[0.5em] text-slate-500 uppercase">KvK Individual Rewards Checklist // Sec: Delta</p>
+                </div>
+            </div>
+            <a href="index.html" class="text-xs font-mono px-4 py-2 border border-slate-700 rounded-full hover:border-yellow-500 transition-colors uppercase text-slate-500 hover:text-white">← Return to Command</a>
+        </header>
+
+        <div class="mb-12 bg-yellow-500/5 p-6 rounded-2xl border border-yellow-500/10 text-center">
+            <p class="text-xl font-bold uppercase tracking-tight text-white leading-relaxed">
+                <span class="text-yellow-500 font-black italic">ALERT:</span> TO GET ALL INDIVIDUAL REWARDS, THESE FINAL REQUIREMENTS MUST BE MET:
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+            
+            <div class="op-card p-6 rounded-[2rem] border-l-4 border-l-yellow-500 flex flex-col justify-between">
+                <div>
+                    <h3 class="text-xs font-black text-slate-500 uppercase tracking-widest mb-1 italic">Directive 01 // Barbarians</h3>
+                    <p class="text-[10px] text-white leading-relaxed mb-4">Final threshold for 'Initiate of the Sun' rewards. Focus on speed.</p>
+                </div>
+                <div>
+                    <span class="text-[10px] text-yellow-500 uppercase tracking-tighter font-mono">Kill Target:</span>
+                    <p class="target-number">1,800 Lvl 26+ KvK-Barbs</p>
+                </div>
+            </div>
+
+            <div class="op-card p-6 rounded-[2rem] border-l-4 border-l-blue-500 flex flex-col justify-between">
+                <div>
+                    <h3 class="text-xs font-black text-slate-500 uppercase tracking-widest mb-1 italic">Directive 02 // Construction</h3>
+                    <p class="text-[10px] text-white leading-relaxed mb-4">Final threshold for 'Guardian of Light' rewards. Stack building speeds.</p>
+                </div>
+                <div>
+                    <span class="text-[10px] text-blue-400 uppercase tracking-tighter font-mono">Construction Target:</span>
+                    <p class="target-number text-blue-400">2,500 Minutes</p>
+                </div>
+            </div>
+
+            <div class="op-card p-6 rounded-[2rem] border-l-4 border-l-yellow-500 flex flex-col justify-between">
+                <div>
+                    <h3 class="text-xs font-black text-slate-500 uppercase tracking-widest mb-1 italic">Directive 03 // Honor</h3>
+                    <p class="text-[10px] text-white leading-relaxed mb-4">Final threshold for 'Hero of the Crusade' rewards. Utilize chain rules.</p>
+                </div>
+                <div>
+                    <span class="text-[10px] text-yellow-500 uppercase tracking-tighter font-mono">Gain Target:</span>
+                    <p class="target-number">130,000 Individual Honor</p>
+                </div>
+            </div>
+
+            <div class="op-card p-6 rounded-[2rem] border-l-4 border-l-red-600 flex flex-col justify-between">
+                <div>
+                    <h3 class="text-xs font-black text-slate-500 uppercase tracking-widest mb-1 italic">Directive 04 // Faith</h3>
+                    <p class="text-[10px] text-white leading-relaxed mb-4">Final threshold for warfare rewards. High AP/Time consumption required.</p>
+                </div>
+                <div>
+                    <span class="text-[10px] text-red-500 uppercase tracking-tighter font-mono">Kill/SWound Target:</span>
+                    <p class="target-number text-red-500">25,000,000 Enemy Troops</p>
+                </div>
+            </div>
+
+            <div class="op-card p-6 rounded-[2rem] border-l-4 border-l-emerald-500 flex flex-col justify-between">
+                <div>
+                    <h3 class="text-xs font-black text-slate-500 uppercase tracking-widest mb-1 italic">Directive 05 // Occupation</h3>
+                    <p class="text-[10px] text-white leading-relaxed mb-4">Final threshold for passive gains. Zero AP requirement. Sit on structure.</p>
+                </div>
+                <div>
+                    <span class="text-[10px] text-emerald-500 uppercase tracking-tighter font-mono">Occupy Target:</span>
+                    <p class="target-number text-emerald-500"> Ruins/Altars for 400 Min</p>
+                </div>
+            </div>
+
+            <div class="op-card p-6 rounded-[2rem] border-l-4 border-l-emerald-500 flex flex-col justify-between">
+                <div>
+                    <h3 class="text-xs font-black text-slate-500 uppercase tracking-widest mb-1 italic">Directive 06 // Gathering</h3>
+                    <p class="text-[10px] text-white leading-relaxed mb-4">Final threshold for 'Crusader Milestone' rewards. Match city themes.</p>
+                </div>
+                <div>
+                    <span class="text-[10px] text-emerald-500 uppercase tracking-tighter font-mono">Gather Target:</span>
+                    <p class="target-number text-emerald-500">Gather 50,000,000 RSS</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="mt-12 op-card p-8 rounded-[2.5rem] border-t-2 border-t-yellow-500 shadow-[0_0_30px_rgba(251,191,36,0.1)]">
+            <h3 class="text-lg font-black italic text-yellow-500 uppercase tracking-tighter mb-4">Operational <span class="text-white">Summary</span></h3>
+            <p class="text-xs text-slate-400 leading-relaxed max-w-4xl">
+                Completion of this prioritized checklist ensures deployment of the full Individual Rewards Package. These targets represent the absolute maximum for all achievement levels. <span class="text-yellow-500 font-bold uppercase tracking-tighter">Note: All Barbs/Forts/Gathering MUST be in the Lost Kingdom.</span>
+            </p>
+        </div>
+
+        <footer class="mt-16 text-center py-6 border-t border-slate-900 opacity-40">
+            <p class="text-[8px] font-mono uppercase tracking-[0.5em] text-slate-500">ACHIEVEMENT PROTOCOL // SECURED UPLINK</p>
+        </footer>
+    </div>
+
+</body>
+</html>

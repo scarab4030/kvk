@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCARAB | Tactical Command</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Inter:wght@400;700;900&display=swap');
+        body { 
+            background-color: #020617; 
+            color: #f8fafc; 
+            font-family: 'Inter', sans-serif; 
+        }
+        .grid-bg { 
+            background-image: linear-gradient(rgba(30, 41, 59, 0.5) 1px, transparent 1px), 
+                              linear-gradient(90deg, rgba(30, 41, 59, 0.5) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+        .scarab-glow { box-shadow: 0 0 20px rgba(234, 179, 8, 0.2); }
+        .op-card { 
+            background: rgba(15, 23, 42, 0.8); 
+            border: 1px solid #1e293b; 
+            backdrop-filter: blur(10px); 
+            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .op-card:hover { border-color: #fbbf24; transform: translateY(-5px); }
+        
+        /* Tactical HUD Elements */
+        .scanline {
+            width: 100%; height: 2px; background: rgba(234, 179, 8, 0.1);
+            position: absolute; animation: scan 4s linear infinite;
+        }
+        @keyframes scan { 0% { top: 0%; } 100% { top: 100%; } }
+        
+        .pulse-red { animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { opacity: 0.2; } 50% { opacity: 0.5; } 100% { opacity: 0.2; } }
+    </style>
+</head>
+<body class="grid-bg min-h-screen p-6 md:p-12">
+
+    <header class="max-w-7xl mx-auto mb-16 flex flex-col md:flex-row justify-between items-center gap-6">
+        <div class="flex items-center gap-6">
+            <div class="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center scarab-glow">
+                <span class="text-4xl">🪲</span>
+            </div>
+            <div>
+                <h1 class="text-5xl font-black italic uppercase text-white tracking-tighter">THE <span class="text-yellow-500">SCARAB</span></h1>
+                <p class="text-[10px] font-mono tracking-[0.5em] text-slate-500 uppercase">Kingdom Fighting Doctrine // 4030</p>
+            </div>
+        </div>
+        <div class="bg-slate-900/80 border border-slate-800 px-6 py-3 rounded-2xl flex gap-8">
+            <div class="text-center"><p class="text-[9px] text-slate-500 uppercase">Combat Zone</p><p class="text-sm font-bold text-red-500">KVK_ZONE_4</p></div>
+            <div class="text-center"><p class="text-[9px] text-slate-500 uppercase">System</p><p class="text-sm font-bold text-green-500">STABLE</p></div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-8">
+        
+        <div class="lg:col-span-3 space-y-4">
+ <a href="fighting-guide.html" class="op-card p-6 rounded-2xl block border-l-4 border-l-green-500 group">
+                <h4 class="font-black italic uppercase text-white group-hover:text-green-400 transition-colors">Fighting Guide</h4>
+                <p class="text-[10px] text-slate-400 mt-1">Core Combat Training</p>
+            </a>
+            <a href="ball-system.html" class="op-card p-6 rounded-2xl block border-l-4 border-l-yellow-500">
+                <h4 class="font-black italic uppercase text-white">Ball System</h4>
+                <p class="text-[10px] text-slate-400 mt-1">Movement & Pixel Stacking</p>
+            </a>
+            <a href="rally-garrison.html" class="op-card p-6 rounded-2xl block border-l-4 border-l-blue-500">
+                <h4 class="font-black italic uppercase text-white">Rally & Garrison</h4>
+                <p class="text-[10px] text-slate-400 mt-1">Structure Logistics</p>
+            </a>
+           
+            <a href="armory.html" class="op-card p-6 rounded-2xl block border-l-4 border-l-purple-500">
+                <h4 class="font-black italic uppercase text-white">PreSets</h4>
+                <p class="text-[10px] text-slate-400 mt-1">Gear & Commander Presets</p>
+            </a>
+            <a href="settings.html" class="op-card p-6 rounded-2xl block border-l-4 border-l-red-500">
+                <h4 class="font-black italic uppercase text-white">Settings</h4>
+                <p class="text-[10px] text-slate-400 mt-1">Optimization & Filters</p>
+            </a>
+        </div>
+
+        <div class="lg:col-span-6 op-card rounded-[2.5rem] relative overflow-hidden border-slate-700/50 p-1 flex flex-col">
+            <div class="scanline"></div>
+            <div class="bg-slate-950 rounded-[2.3rem] h-full w-full relative p-8">
+                
+                <div class="flex justify-between items-start border-b border-slate-900 pb-4 mb-6">
+                    <div>
+                        <h3 class="text-xs font-bold text-yellow-500 uppercase tracking-widest">Live Theater Feed</h3>
+                        <p class="text-[9px] font-mono text-slate-600">SAT_REF: 4030-ALPHA</p>
+                    </div>
+                    <div class="text-right font-mono text-[9px] text-slate-500 uppercase">
+                        Scanning for Targets...<br>
+                        <span class="text-green-500">[SCARAB_BALL_FOUND]</span>
+                    </div>
+                </div>
+
+                <div class="relative h-64 w-full border border-slate-900 rounded-xl bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]">
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
+                        <div class="w-16 h-16 bg-red-900/20 border border-red-500/50 rounded-full flex items-center justify-center pulse-red">
+                            <span class="text-xl">🚩</span>
+                        </div>
+                        <p class="text-[8px] font-bold text-red-500 mt-2 uppercase">Objective: Flag 401</p>
+                    </div>
+                    </div>
+
+                <div class="mt-8 grid grid-cols-3 gap-4">
+                    <div class="h-1 bg-slate-900 rounded-full overflow-hidden"><div class="h-full bg-yellow-500 w-3/4"></div></div>
+                    <div class="h-1 bg-slate-900 rounded-full overflow-hidden"><div class="h-full bg-blue-500 w-full animate-pulse"></div></div>
+                    <div class="h-1 bg-slate-900 rounded-full overflow-hidden"><div class="h-full bg-red-500 w-1/2"></div></div>
+                </div>
+                <div class="flex justify-between text-[7px] font-mono text-slate-600 mt-2 uppercase tracking-tighter">
+                    <span>Power_Efficiency: 75%</span>
+                    <span>Fill_Rate: Optimal</span>
+                    <span>Enemy_Morale: Critical</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="lg:col-span-3 space-y-4">
+            <div class="op-card p-6 rounded-2xl">
+                <h4 class="text-xs font-bold text-slate-500 uppercase mb-4 tracking-widest border-b border-slate-900 pb-2">Operational Alerts</h4>
+                <div class="space-y-4">
+                    <div class="flex gap-3">
+                        <div class="w-1 h-8 bg-red-500 rounded-full"></div>
+                        <div>
+                            <p class="text-[10px] font-bold text-white uppercase">Ball Compression Required</p>
+                            <p class="text-[9px] text-slate-500 italic">Too many gaps in the center.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="op-card p-6 rounded-2xl border-t-2 border-t-red-600 bg-red-950/5">
+                <div class="flex items-center gap-2 mb-4">
+                    <span class="text-red-500 text-lg">⚠️</span>
+                    <h4 class="text-xs font-black italic uppercase text-white tracking-widest">KVK Operations</h4>
+                </div>
+                
+                <div class="space-y-2">
+                    <a href="kvk-map.html" class="flex justify-between items-center p-3 bg-slate-900/50 rounded-xl border border-slate-800 hover:border-red-500/50 transition-all group">
+                        <span class="text-[10px] font-bold uppercase text-slate-400 group-hover:text-white">KvK Map Control</span>
+                        <span class="text-red-500">>></span>
+                    </a>
+                    <a href="kvk-honor.html" class="flex justify-between items-center p-3 bg-slate-900/50 rounded-xl border border-slate-800 hover:border-red-500/50 transition-all group">
+                        <span class="text-[10px] font-bold uppercase text-slate-400 group-hover:text-white">Honor Points</span>
+                        <span class="text-red-500">>></span>
+                    </a>
+                    <a href="kvk-achievements.html" class="flex justify-between items-center p-3 bg-slate-900/50 rounded-xl border border-slate-800 hover:border-red-500/50 transition-all group">
+                        <span class="text-[10px] font-bold uppercase text-slate-400 group-hover:text-white">Achievements</span>
+                        <span class="text-red-500">>></span>
+                    </a>
+                </div>
+                
+                <p class="text-[8px] text-slate-600 mt-4 uppercase font-mono">Current Objective: ZONE_4_DOMINANCE</p>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="mt-16 text-center opacity-40">
+        <p class="text-[9px] font-mono uppercase tracking-[0.5em] text-slate-500">Scarab Tactical Systems // Secured Alliance Network</p>
+    </footer>
+
+</body>
+</html>

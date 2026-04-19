@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scarab Armory | Selection</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #020617; color: #f8fafc; font-family: 'Inter', sans-serif; }
+        .grid-bg { background-image: radial-gradient(#1e293b 1px, transparent 1px); background-size: 30px 30px; }
+        .nav-card { background: rgba(15, 23, 42, 0.8); border: 1px solid #1e293b; transition: 0.3s; cursor: pointer; }
+        .nav-card:hover { border-color: #fbbf24; transform: scale(1.02); }
+        .hidden { display: none; }
+        .guide-content { animation: fadeIn 0.4s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        img { border: 2px solid #334155; border-radius: 1rem; margin: 1.5rem 0; width: 100%; max-width: 800px; display: block; }
+        .step-tag { background: #eab308; color: #000; padding: 2px 10px; border-radius: 4px; font-weight: 900; font-size: 12px; margin-right: 10px; }
+        .equip-tag { background: #9333ea; color: #fff; padding: 2px 10px; border-radius: 4px; font-weight: 900; font-size: 12px; margin-right: 10px; }
+    </style>
+</head>
+<body class="grid-bg min-h-screen p-6 md:p-12">
+
+    <nav class="max-w-5xl mx-auto mb-12 flex justify-between items-center border-b border-slate-800 pb-6">
+        <h1 class="text-3xl font-black text-yellow-500 italic uppercase tracking-tighter">Tactical Armory</h1>
+        <a href="index.html" class="bg-slate-800 px-6 py-2 rounded-full text-xs font-bold uppercase hover:bg-slate-700 transition-colors">Back to Hub</a>
+    </nav>
+
+    <div id="armory-menu" class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+        <div onclick="showSection('commander-guide')" class="nav-card p-10 rounded-[2.5rem] text-center space-y-4 border-b-4 border-b-yellow-500">
+            <span class="text-5xl">🎖️</span>
+            <h2 class="text-2xl font-black uppercase italic">Commander Presets</h2>
+            <p class="text-xs text-slate-500 font-mono uppercase tracking-widest">March Management Doctrine</p>
+        </div>
+        <div onclick="showSection('equipment-guide')" class="nav-card p-10 rounded-[2.5rem] text-center space-y-4 border-b-4 border-b-purple-600">
+            <span class="text-5xl">⚔️</span>
+            <h2 class="text-2xl font-black uppercase italic">Equipment Loadouts</h2>
+            <p class="text-xs text-slate-500 font-mono uppercase tracking-widest">Gear Optimization</p>
+        </div>
+    </div>
+
+    <div id="commander-guide" class="hidden max-w-4xl mx-auto guide-content pb-20">
+        <button onclick="backToMenu()" class="text-[10px] bg-blue-900/30 text-blue-400 px-4 py-2 rounded font-bold uppercase mb-8 hover:bg-blue-900/50">← Return to Selection</button>
+        <div class="space-y-16">
+            <div class="bg-slate-900/40 p-8 rounded-3xl border border-slate-800">
+                <div class="flex items-center mb-6"><span class="step-tag">STEP 1</span><h3 class="text-lg font-bold text-white uppercase italic">Commander Selection</h3></div>
+                <p class="text-slate-300 text-sm font-bold uppercase">SELECT YOUR COMMANDER PAIRINGS WITH MAX NUMBER OF TROOPS</p>
+                <img src="preset1.png" alt="Step 1">
+            </div>
+            <div class="bg-slate-900/40 p-8 rounded-3xl border border-slate-800">
+                <div class="flex items-center mb-6"><span class="step-tag">STEP 2</span><h3 class="text-lg font-bold text-white uppercase italic">Saving Procedure</h3></div>
+                <p class="text-slate-300 text-sm font-bold uppercase">1 - CLICK HERE <br> 2 - TAP HERE TO SAVE YOUR COMMANDER PRE SET</p>
+                <img src="preset2.png" alt="Step 2">
+            </div>
+            <div class="bg-slate-900/40 p-8 rounded-3xl border border-slate-800">
+                <div class="flex items-center mb-6"><span class="step-tag">STEP 3</span><h3 class="text-lg font-bold text-white uppercase italic">Instant Deployment</h3></div>
+                <p class="text-slate-300 text-sm font-bold uppercase">HERE U CAN SEE YOUR SAVED PRE SETS</p>
+                <img src="preset3.png" alt="Step 3">
+            </div>
+            <div class="bg-slate-900/40 p-8 rounded-3xl border border-slate-800 border-l-4 border-l-blue-500">
+                <div class="flex items-center mb-6"><span class="step-tag">STEP 4</span><h3 class="text-lg font-bold text-white uppercase italic">Final Strength Check</h3></div>
+                <p class="text-slate-300 text-sm font-bold uppercase italic text-blue-400">Always ensure your troop bar is at the MAX limit before hitting March.</p>
+                <img src="preset4.png" alt="Step 4">
+            </div>
+        </div>
+    </div>
+
+    <div id="equipment-guide" class="hidden max-w-4xl mx-auto guide-content pb-20">
+        <button onclick="backToMenu()" class="text-[10px] bg-purple-900/30 text-purple-400 px-4 py-2 rounded font-bold uppercase mb-8 hover:bg-purple-900/50">← Return to Selection</button>
+        
+        <div class="space-y-16">
+            <div class="bg-slate-900/40 p-8 rounded-3xl border border-slate-800">
+                <div class="flex items-center mb-6"><span class="equip-tag">STEP 1</span><h3 class="text-lg font-bold text-white uppercase italic">Open Equipment View</h3></div>
+                <p class="text-slate-300 text-sm font-bold uppercase">1- CLICK HERE TO VIEW EQUIPMENTS</p>
+                <img src="equip1.png" alt="View Equipment">
+            </div>
+
+            <div class="bg-slate-900/40 p-8 rounded-3xl border border-slate-800">
+                <div class="flex items-center mb-6"><span class="equip-tag">STEP 2</span><h3 class="text-lg font-bold text-white uppercase italic">Initiate Save</h3></div>
+                <p class="text-slate-300 text-sm font-bold uppercase">2- CLICK HERE TO SAVE YOUR EQUIPMENT PRE SET</p>
+                <img src="equip2.png" alt="Save Equipment">
+            </div>
+
+            <div class="bg-slate-900/40 p-8 rounded-3xl border border-slate-800">
+                <div class="flex items-center mb-6"><span class="equip-tag">STEP 3</span><h3 class="text-lg font-bold text-white uppercase italic">Choose Layout Slot</h3></div>
+                <p class="text-slate-300 text-sm font-bold uppercase">3- CHOOSE ANY EMPTY LAYOUT TO SAVE YOUR EQUIPMENT PRE SET</p>
+                <img src="equip3.png" alt="Choose Slot">
+            </div>
+
+            <div class="bg-slate-900/40 p-8 rounded-3xl border border-slate-800">
+                <div class="flex items-center mb-6"><span class="equip-tag">STEP 4</span><h3 class="text-lg font-bold text-white uppercase italic">Name Your Preset</h3></div>
+                <p class="text-slate-300 text-sm font-bold uppercase italic text-purple-400">Custom names (like "OPEN FIELD INF") help track your gear types quickly.</p>
+                <img src="equip4.png" alt="Name Preset">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            document.getElementById('armory-menu').classList.add('hidden');
+            document.getElementById(sectionId).classList.remove('hidden');
+            window.scrollTo(0, 0);
+        }
+
+        function backToMenu() {
+            document.getElementById('commander-guide').classList.add('hidden');
+            document.getElementById('equipment-guide').classList.add('hidden');
+            document.getElementById('armory-menu').classList.remove('hidden');
+            window.scrollTo(0, 0);
+        }
+    </script>
+
+</body>
+</html>

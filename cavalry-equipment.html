@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCARAB | Cavalry Equipment</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #020617; color: #f8fafc; font-family: 'Inter', sans-serif; }
+        .grid-bg { 
+            background-image: linear-gradient(rgba(30, 41, 59, 0.5) 1px, transparent 1px), 
+                              linear-gradient(90deg, rgba(30, 41, 59, 0.5) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+        .op-card { background: rgba(15, 23, 42, 0.9); border: 1px solid #1e293b; backdrop-filter: blur(10px); }
+        
+        .image-container {
+            width: 100%;
+            max-width: 320px;
+            margin: 20px auto;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            border: 2px solid #1e293b;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+        .image-container img { width: 100%; height: auto; display: block; }
+
+        #stats-overlay { 
+            display: none; 
+            position: absolute; 
+            inset: 0; 
+            background: rgba(7, 10, 20, 0.98); 
+            z-index: 50; 
+            border-radius: 2rem; 
+        }
+
+        .btn-stage { transition: all 0.3s ease; border: 1px solid #1e293b; color: #64748b; }
+        .btn-stage:hover { border-color: #f59e0b; color: #fff; }
+        .btn-stage.active { background: rgba(245, 158, 11, 0.15); border-color: #f59e0b; color: #fff; }
+    </style>
+</head>
+<body class="grid-bg min-h-screen p-6">
+
+    <div class="max-w-4xl mx-auto">
+        <header class="mb-8">
+            <a href="equipment-guide.html" class="text-[10px] text-slate-500 uppercase tracking-widest hover:text-amber-500 transition-colors">← Back to Armory Hub</a>
+            <h1 class="text-4xl font-black italic uppercase text-white mt-2">Cavalry <span class="text-amber-500">Tactics</span></h1>
+            
+            <div class="flex flex-wrap gap-2 mt-6">
+                <button onclick="setStage('early')" id="btn-early" class="btn-stage text-[10px] font-bold uppercase px-4 py-2 rounded active">Earlygame</button>
+                <button onclick="setStage('mid')" id="btn-mid" class="btn-stage text-[10px] font-bold uppercase px-4 py-2 rounded">Midgame</button>
+                <button onclick="setStage('end1')" id="btn-end1" class="btn-stage text-[10px] font-bold uppercase px-4 py-2 rounded">Endgame S1</button>
+                <button onclick="setStage('end2')" id="btn-end2" class="btn-stage text-[10px] font-bold uppercase px-4 py-2 rounded">Endgame S2</button>
+            </div>
+        </header>
+
+        <div class="op-card rounded-[2rem] p-8 relative min-h-[600px] border-slate-800 shadow-2xl">
+            
+            <div class="flex justify-between items-center mb-6">
+                <div>
+                    <h2 id="display-title" class="text-2xl font-black italic uppercase text-white">Earlygame</h2>
+                    <p id="display-subtitle" class="text-[10px] text-slate-500 uppercase tracking-widest">Speed & Mobility Focus</p>
+                </div>
+                <button onclick="toggleStats()" class="bg-amber-600 hover:bg-amber-500 text-white px-5 py-2 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all">Info</button>
+            </div>
+
+            <div class="image-container">
+                <img id="main-gear-img" src="cav-early.png" alt="Cavalry Set">
+            </div>
+
+            <div id="stats-overlay" class="p-8">
+                <div class="flex justify-between items-center mb-6 border-b border-slate-900 pb-4">
+                    <h3 id="stat-title" class="text-sm font-bold text-white uppercase tracking-widest">Stats</h3>
+                    <button onclick="toggleStats()" class="text-amber-500 text-[10px] font-bold uppercase border border-amber-500/30 px-3 py-1 rounded hover:bg-amber-500/10">Close</button>
+                </div>
+                
+                <div id="set-effects" class="mb-8">
+                    </div>
+
+                <div id="stat-list" class="space-y-4">
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const stageData = {
+            early: {
+                title: "Earlygame", sub: "Vanguard + Windswept", img: "cav-early.png",
+                stats: { "Cav Attack": "+11%", "Cav Defense": "+8%", "Cav Health": "+4%", "March Speed": "+11%" },
+                sets: ["Vanguard (2pc): Cav Attack +2%", "Windswept (2pc): Troop Attack +2%"]
+            },
+            mid: {
+                title: "Midgame", sub: "Revival Mastery", img: "cav-mid.png",
+                stats: { "Cav Attack": "+19%", "Cav Defense": "+14%", "Cav Health": "+12%", "March Speed": "+12%" },
+                sets: ["Revival (4pc): March Speed +10%"]
+            },
+            end1: {
+                title: "Endgame Set 1", sub: "Hellish Wasteland (Tanky)", img: "cav-end1.png",
+                stats: { "Cav Attack": "+32.5%", "Cav Defense": "+19.5%", "Cav Health": "+51%" },
+                sets: ["Hellish Wasteland (2pc): Defense +3%", "Hellish Wasteland (4pc): March Speed +10%"]
+            },
+            end2: {
+                title: "Endgame Set 2", sub: "Hellish Wasteland (Glass Cannon)", img: "cav-end2.png",
+                stats: { "Cav Attack": "+45%", "Cav Defense": "+25%", "Cav Health": "+38%" },
+                sets: ["Hellish Wasteland (2pc): Defense +3%"]
+            }
+        };
+
+        let currentStage = 'early';
+
+        function setStage(stage) {
+            currentStage = stage;
+            const data = stageData[stage];
+            
+            document.getElementById('main-gear-img').src = data.img;
+            document.getElementById('display-title').innerText = data.title;
+            document.getElementById('display-subtitle').innerText = data.sub;
+            
+            document.querySelectorAll('.btn-stage').forEach(btn => btn.classList.remove('active'));
+            document.getElementById('btn-' + stage).classList.add('active');
+        }
+
+        function toggleStats() {
+            const overlay = document.getElementById('stats-overlay');
+            if (overlay.style.display === 'block') {
+                overlay.style.display = 'none';
+            } else {
+                const data = stageData[currentStage];
+                document.getElementById('stat-title').innerText = data.title + " Specs";
+                
+                const setDiv = document.getElementById('set-effects');
+                setDiv.innerHTML = `<p class="text-yellow-500 text-[10px] font-bold uppercase mb-2">Set Effects Applied</p>`;
+                data.sets.forEach(s => {
+                    setDiv.innerHTML += `<p class="text-slate-400 text-[10px] font-mono mb-1">» ${s}</p>`;
+                });
+
+                const list = document.getElementById('stat-list');
+                list.innerHTML = "";
+                for (const [key, val] of Object.entries(data.stats)) {
+                    list.innerHTML += `
+                        <div class="flex justify-between items-center border-b border-slate-900 pb-2">
+                            <span class="text-slate-400 text-xs flex items-center gap-2">
+                                <div class="w-1.5 h-1.5 rounded-full bg-amber-500 shadow-[0_0_5px_#f59e0b]"></div> ${key}
+                            </span>
+                            <span class="text-white font-bold text-xs">${val}</span>
+                        </div>`;
+                }
+                overlay.style.display = 'block';
+            }
+        }
+        setStage('early');
+    </script>
+</body>
+</html>
